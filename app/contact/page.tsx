@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import ThemeToggle from '../components/ThemeToggle';
+import ThemeToggle from '../../components/ThemeToggle';
+import ContactForm from '../../components/ContactForm';
 
-export default function Home() {
+export default function Contact() {
   return (
     <>
       <header>
@@ -16,8 +17,9 @@ export default function Home() {
 
       <main>
         <section>
-          <h2>Welcome</h2>
-          <p>This is my webpage. I built it using HTML and CSS!</p>
+          <h2>Contact Me</h2>
+          <p>Fill out the form below and I will get back to you soon.</p>
+          <ContactForm />
         </section>
       </main>
 
