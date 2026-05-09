@@ -11,3 +11,20 @@
 - **Why it matters:** It prevents empty or invalid submissions and gives users clear feedback.
 - **Events involved:** submit, input
 - **State to track:** field values, error messages, success state
+## Week 4: Component Architecture
+
+### Component Tree
+
+App
+├── Header (Client Component)
+│   └── Nav (Client Component)
+├── Main
+│   ├── Hero (Server Component)
+│   └── Card (Server Component) x3
+└── Footer (Server Component)
+
+### State Ownership Notes
+- Header: holds mobile menu open/close state
+- ThemeToggle (inside Header): holds dark/light mode + saves to localStorage
+- Card: no state, receives props only
+- Footer: no state, receives props only
