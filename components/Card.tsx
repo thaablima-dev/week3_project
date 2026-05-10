@@ -12,7 +12,8 @@ export default function Card({ title, description, href }: CardProps) {
       padding: '16px',
       margin: '16px auto',
       maxWidth: '600px',
-      background: 'white'
+      background: 'var(--card-bg, white)',
+      color: 'var(--card-text, black)',
     }}>
       <h3>{title}</h3>
       <p>{description}</p>

@@ -158,3 +158,12 @@ a:focus {
   outline: 2px solid #4a90e2;
   outline-offset: 2px;
 }
+[data-theme="dark"] {
+  --card-bg: #2a2a2a;
+  --card-text: #ffffff;
+}
+
+[data-theme="light"] {
+  --card-bg: white;
+  --card-text: black;
+}

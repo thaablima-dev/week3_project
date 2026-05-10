@@ -1,29 +1,42 @@
-import Link from 'next/link';
-import ThemeToggle from '../components/ThemeToggle';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import Footer from '@/components/Footer';
+import Card from '@/components/Card';
 
 export default function Home() {
+  const cards = [
+    {
+      title: "About Me",
+      description: "I am a student learning web development with Next.js and React.",
+      href: "/about"
+    },
+    {
+      title: "My Projects",
+      description: "Check out the projects I have built so far in this course.",
+      href: "/contact"
+    },
+    {
+      title: "Contact Me",
+      description: "Want to get in touch? Send me a message anytime.",
+      href: "/contact"
+    },
+  ];
+
   return (
     <>
-      <header>
-        <h1>My Website</h1>
-        <nav>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
-        </nav>
-        <ThemeToggle />
-      </header>
-
+      <Header />
       <main>
-        <section>
-          <h2>Welcome</h2>
-          <p>This is my webpage. I built it using HTML and CSS!</p>
-        </section>
+        <Hero />
+        {cards.map((card) => (
+          <Card
+            key={card.title}
+            title={card.title}
+            description={card.description}
+            href={card.href}
+          />
+        ))}
       </main>
-
-      <footer>
-        <p>© 2026 Thais Lima</p>
-      </footer>
+      <Footer />
     </>
   );
 }
