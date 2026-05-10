@@ -11,20 +11,35 @@
 - **Why it matters:** It prevents empty or invalid submissions and gives users clear feedback.
 - **Events involved:** submit, input
 - **State to track:** field values, error messages, success state
+
 ## Week 4: Component Architecture
 
 ### Component Tree
 
 App
 ├── Header (Client Component)
-│   └── Nav (Client Component)
+│   ├── Nav (Client Component)
+│   └── ThemeToggle (Client Component) ← holds dark/light state + localStorage
 ├── Main
 │   ├── Hero (Server Component)
-│   └── Card (Server Component) x3
-└── Footer (Server Component)
+│   ├── Card (Server Component) — "About Me"
+│   ├── Card (Server Component) — "My Projects"
+│   └── Card (Server Component) — "Contact Me"
+├── Footer (Server Component)
+└── ContactForm (Client Component) ← holds form field state
+
+### Component Details
+- **Header** — Client Component, renders Nav and ThemeToggle
+- **Nav** — Client Component, uses Next.js Link for navigation
+- **ThemeToggle** — Client Component, uses useState + useEffect + localStorage
+- **Hero** — Server Component, displays welcome message, no state
+- **Card** — Server Component, receives title/description/href as props, no state
+- **Footer** — Server Component, displays copyright, no state
+- **ContactForm** — Client Component, uses useState for name/email/message/submitted
 
 ### State Ownership Notes
-- Header: holds mobile menu open/close state
-- ThemeToggle (inside Header): holds dark/light mode + saves to localStorage
-- Card: no state, receives props only
-- Footer: no state, receives props only
+- **ThemeToggle:** owns dark/light mode state, persists to localStorage with useEffect
+- **ContactForm:** owns form field values and submission state
+- **Card:** no state, receives props only
+- **Footer:** no state, receives props only
+- **Hero:** no state, pure display component
