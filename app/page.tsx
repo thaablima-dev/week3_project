@@ -13,7 +13,7 @@ export default function Home() {
     {
       title: "My Projects",
       description: "Check out the projects I have built so far in this course.",
-      href: "/contact"
+      href: "/projects"
     },
     {
       title: "Contact Me",
@@ -25,16 +25,18 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="home-main">
         <Hero />
-        {cards.map((card) => (
-          <Card
-            key={card.title}
-            title={card.title}
-            description={card.description}
-            href={card.href}
-          />
-        ))}
+        <div className="cards-grid">
+          {cards.map((card) => (
+            <Card
+              key={card.title}
+              title={card.title}
+              description={card.description}
+              href={card.href}
+            />
+          ))}
+        </div>
       </main>
       <Footer />
     </>

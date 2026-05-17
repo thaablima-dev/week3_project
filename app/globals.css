@@ -167,3 +167,163 @@ a:focus {
   --card-bg: white;
   --card-text: black;
 }
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s;
+}
+
+.post-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.post-date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.post-card h3 {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #111;
+}
+
+.read-more {
+  font-size: 0.85rem;
+  color: #333;
+  margin-top: auto;
+}
+
+[data-theme="dark"] .post-card {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #f0f0f0;
+}
+
+[data-theme="dark"] .post-card h3 {
+  color: #f0f0f0;
+}
+
+/* Fix section max-width for posts page */
+.posts-section {
+  max-width: 1000px !important;
+}
+.home-main {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+}
+
+.card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.card-link {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .hero,
+[data-theme="dark"] .card {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #f0f0f0;
+}
+
+[data-theme="dark"] .card p {
+  color: #bbb;
+}
+
+[data-theme="dark"] .card-link {
+  color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.about-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.about-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.linkedin-btn {
+  background-color: #0077b5;
+  color: white;
+}
+
+.medium-btn {
+  background-color: #333;
+  color: white;
+}
+
+.about-btn:hover {
+  opacity: 0.85;
+}

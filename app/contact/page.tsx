@@ -1,20 +1,11 @@
-import Link from 'next/link';
-import ThemeToggle from '../../components/ThemeToggle';
-import ContactForm from '../../components/ContactForm';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ContactForm from '@/components/ContactForm';
 
 export default function Contact() {
   return (
     <>
-      <header>
-        <h1>My Website</h1>
-        <nav>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
-        </nav>
-        <ThemeToggle />
-      </header>
-
+      <Header />
       <main>
         <section>
           <h2>Contact Me</h2>
@@ -22,10 +13,7 @@ export default function Contact() {
           <ContactForm />
         </section>
       </main>
-
-      <footer>
-        <p>© 2026 Thais Lima</p>
-      </footer>
+      <Footer />
     </>
   );
 }
