@@ -43,3 +43,32 @@ App
 - **Card:** no state, receives props only
 - **Footer:** no state, receives props only
 - **Hero:** no state, pure display component
+---
+
+## Week 5: New Pages & Design Updates
+
+### New Pages Added
+- **/projects page:** displays all 7 Medium articles as clickable cards
+  - Each card shows title, date, and "Read on Medium" link
+  - Responsive grid layout — stacks on mobile
+  - Connected to "My Projects" card on home page
+- **/about page:** updated with real personal information
+  - Bio: Brazilian student, San Diego, SSU, Master's in IT
+  - LinkedIn button linking to real profile
+  - Medium button linking to real blog
+
+### Hero Section Updated
+- Replaced generic "Welcome" text with real personal introduction
+- Includes name, location, university, and areas of interest
+
+### Navigation Updated
+- Added "Projects" link to Nav component
+- Nav change automatically reflected on all pages via Header reuse
+- Fixed "My Projects" card href from /contact to /projects
+
+### Design Updates
+- Added .posts-grid CSS for responsive Medium article cards
+- Added .post-card hover styles
+- Added .about-links with LinkedIn and Medium buttons
+- Added .cards-grid for home page 3-column layout
+- Added .hero class for full-width welcome section
