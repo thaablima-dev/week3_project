@@ -327,3 +327,97 @@ a:focus {
 .about-btn:hover {
   opacity: 0.85;
 }
+/* Weather Page */
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.weather-temp {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.weather-desc {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.weather-wind {
+  font-size: 1rem;
+  color: #777;
+}
+
+.refresh-btn {
+  width: fit-content;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.refresh-btn:hover {
+  background-color: #555;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Skeleton Screen */
+.skeleton-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.skeleton {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-title {
+  height: 2.5rem;
+  width: 200px;
+}
+
+.skeleton-line {
+  height: 1rem;
+  width: 100%;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Error Box */
+.error-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  color: #cc0000;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
