@@ -72,3 +72,43 @@ App
 - Added .about-links with LinkedIn and Medium buttons
 - Added .cards-grid for home page 3-column layout
 - Added .hero class for full-width welcome section
+---
+
+## Week 7: Async & Loading States
+
+### Data Source
+- Chose: Open-Meteo public API (no API key required)
+- Why: free, reliable, no authentication needed, returns real-time weather data
+- Endpoint: https://api.open-meteo.com/v1/forecast
+- Location: San Diego, CA (latitude=32.7157, longitude=-117.1611)
+
+### Three-State Component
+- **Loading state:** skeleton screen with three pulsing gray bars
+- **Error state:** red error message with "Try Again" button
+- **Success state:** displays temperature (°F), weather condition, and wind speed
+
+### Fetch Lifecycle
+- useEffect runs after component mounts → calls fetchWeather()
+- try/catch/finally guarantees loading state always exits
+- setData() triggers re-render with real weather data
+- setError() triggers re-render with error message
+
+### Skeleton Screen
+- Mimics the shape of the loaded content (title bar + two lines)
+- CSS animation: pulse keyframe fades opacity 1 → 0.4 → 1
+- Signals "almost there" instead of just "wait"
+
+### Refresh Control
+- Button re-fetches data on click
+- Disabled during refresh to prevent double-clicks
+- aria-busy attribute tells screen readers refresh is in progress
+
+### Accessibility
+- error-box uses role="alert" for screen readers
+- Refresh button uses aria-busy during loading
+- prefers-reduced-motion media query disables all animations for users who need it
+
+### New Page Added
+- /weather page added to site and navigation
+- WeatherPanel is a Client Component (uses useState + useEffect)
+- weather page uses Header and Footer server components
