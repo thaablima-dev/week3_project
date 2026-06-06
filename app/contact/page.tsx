@@ -10,7 +10,7 @@ export default function Contact() {
         <section>
           <h2>Contact Me</h2>
           <p>Fill out the form below and I will get back to you soon.</p>
-          <form action={createMessage}>
+          <form action={createMessage as unknown as string}>
             <div>
               <label htmlFor="name">Name</label>
               <input type="text" id="name" name="name" placeholder="Your name" required />
