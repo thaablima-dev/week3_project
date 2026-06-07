@@ -2,6 +2,8 @@ import { PrismaClient } from '@prisma/client';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+export const revalidate = 0;
+
 const prisma = new PrismaClient();
 
 export default async function MessagesPage() {
