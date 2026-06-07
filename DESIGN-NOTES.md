@@ -112,3 +112,42 @@ App
 - /weather page added to site and navigation
 - WeatherPanel is a Client Component (uses useState + useEffect)
 - weather page uses Header and Footer server components
+
+---
+
+## Week 8: Database & Backend
+
+### Provider Chosen
+- **Neon** — free tier, serverless Postgres, integrates cleanly with Vercel
+- Why: no API key complexity, generous free tier, pooled connections work out of the box
+
+### Schema Definition
+```prisma
+model Message {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  body      String
+  createdAt DateTime @default(now())
+}
+```
+- Chose `Message` model because the contact form is the primary data entry point
+- `createdAt` auto-timestamps every submission for ordering
+
+### Server Action (Write Path)
+- `app/actions.ts` marked with "use server"
+- Reads FormData, validates all fields, uses Prisma to insert into database
+- Database credentials never reach the browser
+
+### Server Component (Read Path)
+- `app/messages/page.tsx` is a Server Component
+- Fetches all messages with `prisma.message.findMany()` ordered by newest first
+- `export const revalidate = 0` added to prevent Vercel caching stale data
+
+### Environment Variables
+- `DATABASE_URL` added to Vercel → Settings → Environment Variables
+- Also stored in `.env` and `.env.local` locally (both gitignored)
+- `postinstall: prisma generate` added to `package.json` to fix Vercel build
+
+### New Pages Added
+- `/messages` — displays all submitted contact messages from the database
