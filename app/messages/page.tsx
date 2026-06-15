@@ -1,12 +1,17 @@
 import { PrismaClient } from '@prisma/client';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
 export const revalidate = 0;
 
 const prisma = new PrismaClient();
 
 export default async function MessagesPage() {
+  const session = await auth();
+  if (!session?.user) redirect("/api/auth/signin");
+
   const messages = await prisma.message.findMany({
     orderBy: { createdAt: 'desc' },
     take: 20,

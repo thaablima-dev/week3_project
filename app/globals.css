@@ -445,3 +445,27 @@ a:focus {
   font-size: 0.8rem;
   color: #999;
 }
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.auth-btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.auth-btn:hover {
+  background-color: #555;
+}
+
+.auth-name {
+  color: white;
+  font-size: 0.9rem;
+}
