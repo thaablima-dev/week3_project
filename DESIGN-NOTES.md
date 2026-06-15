@@ -151,3 +151,32 @@ model Message {
 
 ### New Pages Added
 - `/messages` — displays all submitted contact messages from the database
+
+---
+
+## Week 9: Authentication & Security
+
+### Authentication
+- Installed Auth.js (NextAuth v5) with GitHub OAuth provider
+- Created `auth.ts` in project root with GitHub provider
+- Added `app/api/auth/[...nextauth]/route.ts` handler
+- Added `AuthButton` component to Header — shows Sign In or Hi, [name] + Sign Out
+- AUTH_SECRET, AUTH_GITHUB_ID, AUTH_GITHUB_SECRET stored in .env.local and Vercel
+
+### Protected Route
+- `/messages` page is protected server-side using `auth()` from Auth.js
+- Unauthenticated users are redirected to `/api/auth/signin` before any data is fetched
+- Server-side protection cannot be bypassed with browser DevTools
+
+### OWASP Mitigations
+- **A05 Security Misconfiguration:** Added HTTP security headers in `next.config.ts`
+  - X-Frame-Options: DENY
+  - X-Content-Type-Options: nosniff
+  - Referrer-Policy: strict-origin-when-cross-origin
+  - Permissions-Policy: disables camera, microphone, geolocation
+- **A07 Authentication Failures:** AUTH_SECRET environment variable, server-side sessions, protected route redirect
+
+### Performance
+- Lighthouse audit on live Vercel URL: 100/100/100/100
+- Vercel Analytics and Speed Insights enabled
+- No performance improvements needed — scores were already perfect
